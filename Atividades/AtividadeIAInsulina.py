@@ -61,34 +61,10 @@ hoje de manhã comi um pão frances com uma fatia de queijo prato mais um ovo co
 contexto_json = montar_json(medicamentos, bolus_alimentar, bolus_correcao, glicemia_atual, descricao_alimentacao)
 
 # Prompt para IA
-papel_esperado_ia = (
-    "Você é nutricionista especializada em contagem de carboidratos, calorias e cálculo da insulina necessária com base na alimentação e nos níveis de glicose informados."
-)
-exemplo_json = """
-Exemplo de resposta:
-{
-  "nome_do_alimento": "",
-  "quantidade_de_carboidrato": ,
-  "quantidade_de_caloria": ,
-  "quantidade_de_glicemia_enviada": ,
-  "quantidade_de_insulina_necessaria": 
-}
-"""
-resposta = (
-    "Retorne SOMENTE um JSON exatamente como no exemplo acima. Não escreva absolutamente nada além disso. Não use blocos de código, não inclua comentários ou explicações."
-)
-prompt = f"""
-Papel:
-{papel_esperado_ia}
-
-Contexto:
-{contexto_json}
-
-{exemplo_json}
-
-Resposta:
-{resposta}
-"""
+papel_esperado_ia = "Nutricionista: calcule carboidratos, calorias e insulina pela alimentação e glicemia informada."
+exemplo_json = '{"nome_do_alimento": "", "quantidade_de_carboidrato": , "quantidade_de_caloria": , "quantidade_de_glicemia_enviada": , "quantidade_de_insulina_necessaria": }'
+resposta = "Responda apenas com esse JSON, sem comentários, sem blocos de código e com o nome de todos alimentos."
+prompt = f"{papel_esperado_ia}\n{contexto_json}\n{exemplo_json}\n{resposta}"
 
 tokens_input = contar_tokens(prompt)
 
