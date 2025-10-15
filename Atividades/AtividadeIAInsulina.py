@@ -2,7 +2,7 @@ import json
 from google import genai
 
 # Configuração do cliente da Google Gemini
-client = genai.Client(api_key="AIzaSyDzvAkCOTlBsqcEHPHeEeVSBw-iFc0kgvk")
+client = genai.Client(api_key="")
 
  # Função para montar o JSON de entrada
 def montar_json(medicamentos, bolus_alimentar, bolus_correcao, glicemia_atual, descricao_alimentacao):
